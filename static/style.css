@@ -107,3 +107,30 @@ input::placeholder {
         font-size: 14px;
     }
 }
+
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 14px;
+    color: #ffffffcc;
+    padding: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    background: transparent;
+}
+
+.footer p {
+    margin: 0;
+    font-weight: 500;
+    opacity: 0.85;
+    letter-spacing: 0.5px;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Optional: sticky footer on very short pages */
+html, body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
