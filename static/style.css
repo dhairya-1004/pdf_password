@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+body {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    width: 90%;
+    max-width: 400px;
+    animation: fade-in 1s ease-in;
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.25);
+    color: #fff;
+    font-size: 15px;
+    outline: none;
+    transition: background 0.3s;
+}
+
+input:hover {
+    background: rgba(255, 255, 255, 0.35);
+}
+
+input::placeholder {
+    color: #ddd;
+}
+
+.glow-button {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.glow-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #00c6ff;
+}
+
+@keyframes fade-in {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ✅ Mobile responsiveness */
+@media (max-width: 480px) {
+    .glass-card {
+        width: 90%;
+        padding: 25px;
+    }
+
+    h1 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    input, .glow-button {
+        padding: 12px;
+        font-size: 14px;
+    }
+}

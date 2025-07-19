@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PDF Protector</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="{{ url_for('static', filename='logo.png') }}" type="image/png">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="glass-card">
+    <h1>🔐 PDF Protector</h1>
+    <form id="pdfForm">
+        <div class="form-group">
+            <label>Select PDF File</label>
+            <input type="file" name="file" accept="application/pdf" required>
+        </div>
+
+        <div class="form-group">
+            <label>Create Password</label>
+            <input type="password" name="password" placeholder="Enter password" required>
+        </div>
+
+        <div class="form-group">
+            <label>Download File Name</label>
+            <input type="text" name="filename" placeholder="protected_file" required>
+        </div>
+
+        <button type="submit" class="glow-button">Protect & Download</button>
+    </form>
+</div>
+
+<script>
+document.getElementById('pdfForm').addEventListener('submit', async function(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const response = await fetch('/protect_pdf', {
+        method: 'POST',
+        body: formData
+    });
+    if (response.ok) {
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = formData.get('filename') + '.pdf';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        alert('✅ PDF Protected & Downloaded!');
+    } else {
+        alert('❌ Error during protection.');
+    }
+});
+</script>
+
+</body>
+</html>
