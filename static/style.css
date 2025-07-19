@@ -126,7 +126,7 @@ input::placeholder {
     font-family: 'Inter', sans-serif;
 }
 
-/* Optional: sticky footer on very short pages */
+/* Optional: sticky footer  */
 html, body {
     min-height: 100vh;
     display: flex;
